@@ -25,7 +25,7 @@ const bitbar = require('bitbar');
 bitbar([
 	{
 		text: '❤',
-		color: 'red',
+		color: bitbar.darkMode ? 'white' : 'red',
 		dropdown: false
 	},
 	{
@@ -61,10 +61,13 @@ You can use any of the [supported options](https://github.com/matryer/bitbar#plu
 
 Applies to all items unless overridden in the item.
 
-
 ### bitbar.sep
 
 Add a separator.
+
+### bitbar.darkMode
+
+Returns a boolean of whether OS X Dark Mode is enabled.
 
 
 ## License

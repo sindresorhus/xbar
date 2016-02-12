@@ -38,4 +38,5 @@ module.exports = function (input, opts) {
 };
 
 module.exports.sep = sep;
+module.exports.darkMode = process.env.BitBarDarkMode === '1';
 module.exports.create = create;
