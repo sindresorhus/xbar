@@ -28,6 +28,7 @@ bitbar([
 		color: bitbar.darkMode ? 'white' : 'red',
 		dropdown: false
 	},
+	bitbar.sep,
 	{
 		text: 'Unicorns',
 		color: '#ff79d7',
