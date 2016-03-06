@@ -4,7 +4,7 @@ var sep = {};
 
 function create(input, opts) {
 	return input.map(function (line) {
-		if (typeof line === 'string') {
+		if (typeof line === 'string' || typeof line === 'number') {
 			line = {text: line};
 		}
 
@@ -14,7 +14,7 @@ function create(input, opts) {
 
 		line = objectAssign(line, opts);
 
-		var text = line.text;
+		var text = String(line.text);
 		delete line.text;
 
 		if (!text) {
