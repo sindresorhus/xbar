@@ -1,6 +1,6 @@
 {
   "name": "bitbar",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simplifies BitBar app plugin creation",
   "license": "MIT",
   "repository": "sindresorhus/bitbar",
