@@ -1,12 +1,11 @@
 'use strict';
-var objectAssign = require('object-assign');
-var sep = {};
+const sep = {};
 
 function create(input, opts, menuLevel) {
 	menuLevel = menuLevel || 0;
 
-	return input.map(function (line) {
-		var submenuText = '';
+	return input.map((line) => {
+		let submenuText = '';
 		if (typeof line === 'string' || typeof line === 'number') {
 			line = {text: line};
 		}
@@ -15,9 +14,9 @@ function create(input, opts, menuLevel) {
 			return '---';
 		}
 
-		line = objectAssign(line, opts);
+		line = Object.assign(line, opts);
 
-		var text = String(line.text);
+		const text = String(line.text);
 		delete line.text;
 
 		if (!text) {
@@ -25,25 +24,25 @@ function create(input, opts, menuLevel) {
 		}
 
 		if (typeof line.submenus === 'object' && line.submenus.length > 0) {
-			submenuText = '\n' + create(line.submenus, opts, menuLevel + 1);
+			submenuText = `\n${create(line.submenus, opts, menuLevel + 1)}`;
 			delete line.submenus;
 		}
 
-		var prefix = '--'.repeat(menuLevel);
+		const prefix = '--'.repeat(menuLevel);
 
-		return text.split('\n').map(function (textLine) {
-			return prefix + textLine + '|' + Object.keys(line).map(function (x) {
+		return text.split('\n').map((textLine) => {
+			return `${prefix}${textLine}|${Object.keys(line).map((x) => {
 				if (x === 'href') {
 					x = encodeURI(x);
 				}
 
-				return x + '="' + line[x] + '"';
-			}).join(' ');
+				return `${x}="${line[x]}"`;
+			}).join(' ')}`;
 		}).join('\n').concat(submenuText);
 	}).join('\n');
 }
 
-module.exports = function (input, opts) {
+module.exports = (input, opts) => {
 	console.log(create(input, opts));
 };
 
