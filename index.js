@@ -32,11 +32,7 @@ function create(input, opts, menuLevel) {
 
 		return text.split('\n').map((textLine) => {
 			return `${prefix}${textLine}|${Object.keys(line).map((x) => {
-				if (x === 'href') {
-					x = encodeURI(x);
-				}
-
-				return `${x}="${line[x]}"`;
+				return `${x}="${x === 'href' ? encodeURI(line[x]) : line[x]}"`;
 			}).join(' ')}`;
 		}).join('\n').concat(submenuText);
 	}).join('\n');
