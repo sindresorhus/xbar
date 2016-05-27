@@ -31,8 +31,17 @@ bitbar([
 	bitbar.sep,
 	{
 		text: 'Unicorns',
-		color: '#ff79d7',
-		href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4'
+		color: '#ff79d7'
+		submenus: [
+			{
+				text: ':tv: Video',
+				href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4'
+			},
+			{
+				text: ':book: Wiki',
+				href: 'https://en.wikipedia.org/wiki/Unicorn'
+			}
+		]
 	},
 	bitbar.sep,
 	'Ponies'
