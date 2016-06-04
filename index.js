@@ -1,10 +1,8 @@
 'use strict';
 const sep = {};
 
-const create = (input, opts, menuLevel) => {
-	menuLevel = menuLevel || 0;
-
-	return input.map((line) => {
+const create = (input, opts, menuLevel = 0) => {
+	return input.map(line => {
 		let submenuText = '';
 		if (typeof line === 'string' || typeof line === 'number') {
 			line = {text: line};
@@ -30,7 +28,7 @@ const create = (input, opts, menuLevel) => {
 
 		const prefix = '--'.repeat(menuLevel);
 
-		return text.split('\n').map((textLine) => {
+		return text.split('\n').map(textLine => {
 			return `${prefix}${textLine}|${Object.keys(line).map((x) => {
 				return `${x}="${x === 'href' ? encodeURI(line[x]) : line[x]}"`;
 			}).join(' ')}`;
