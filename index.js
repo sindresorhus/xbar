@@ -29,9 +29,11 @@ const create = (input, opts, menuLevel = 0) => {
 		const prefix = '--'.repeat(menuLevel);
 
 		return text.split('\n').map(textLine => {
-			return `${prefix}${textLine}|${Object.keys(line).map((x) => {
+			let options = Object.keys(line).map((x) => {
 				return `${x}="${x === 'href' ? encodeURI(line[x]) : line[x]}"`;
-			}).join(' ')}`;
+			}).join(' ');
+
+			return `${prefix}${textLine}|${options}`;
 		}).join('\n').concat(submenuText);
 	}).join('\n');
 };
