@@ -1,7 +1,7 @@
 'use strict';
 const sep = {};
 
-function create(input, opts, menuLevel) {
+const create = (input, opts, menuLevel) => {
 	menuLevel = menuLevel || 0;
 
 	return input.map((line) => {
@@ -36,7 +36,7 @@ function create(input, opts, menuLevel) {
 			}).join(' ')}`;
 		}).join('\n').concat(submenuText);
 	}).join('\n');
-}
+};
 
 module.exports = (input, opts) => {
 	console.log(create(input, opts));
