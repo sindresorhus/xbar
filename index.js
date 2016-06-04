@@ -29,7 +29,7 @@ const create = (input, opts, menuLevel = 0) => {
 		const prefix = '--'.repeat(menuLevel);
 
 		return text.split('\n').map(textLine => {
-			let options = Object.keys(line).map((x) => {
+			const options = Object.keys(line).map((x) => {
 				return `${x}="${x === 'href' ? encodeURI(line[x]) : line[x]}"`;
 			}).join(' ');
 
