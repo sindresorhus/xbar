@@ -68,7 +68,7 @@ Add a separator.
 
 ### bitbar.darkMode
 
-Returns a boolean of whether OS X Dark Mode is enabled.
+Returns a boolean of whether macOS Dark Mode is enabled.
 
 
 ## License
