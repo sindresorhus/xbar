@@ -8,14 +8,15 @@ test(t => {
 			color: 'red',
 			dropdown: false
 		},
+		bitbar.sep,
 		{
 			text: 'Unicorns',
 			color: '#ff79d7',
 			href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4',
-			submenus: [
+			submenu: [
 				{
 					text: '1st Level Submenu - A',
-					submenus: [
+					submenu: [
 						{
 							text: '2nd level Submenu'
 						}
