@@ -9,6 +9,11 @@
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
+  "contributors": [{
+    "name": "Pedro Fuentes",
+    "email": "git@pedrofuent.es",
+    "url": "pedrofuent.es"
+  }],
   "engines": {
     "node": ">=6"
   },
