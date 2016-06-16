@@ -8,7 +8,7 @@ test(t => {
 			color: 'red',
 			dropdown: false
 		},
-		bitbar.sep,
+		m.sep,
 		{
 			text: 'Unicorns',
 			color: '#ff79d7',
@@ -33,6 +33,7 @@ test(t => {
 
 	const expected = `
 ❤|color="red" dropdown="false"
+---
 Unicorns|color="#ff79d7" href="https://www.youtube.com/watch?v=9auOCbH5Ns4"
 --1st Level Submenu - A|
 ----2nd level Submenu|
