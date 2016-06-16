@@ -4,7 +4,7 @@
 
 Create your plugin using a nice API instead of having to manually construct a big string.
 
-*Requires BitBar 1.4 or above.*
+*Requires BitBar 1.9 or higher.*
 
 <img src="screenshot.png" width="232">
 
@@ -59,19 +59,19 @@ Create a file with the above code in the BitBar plugins directory and make sure 
 
 #### items
 
-Type: `array` of `string|object`
+Type: `Array<string|Object>`
 
 An item can be a string with the text or an object with the text in a `text` property and any of the `options`. The text can be multiple lines, but for the first item, only the first line will be shown in the menubar.
 
 ##### submenu
 
-Type: `array` of `string|object`
+Type: `Array<string|Object>`
 
 It will add a submenu to the current item. A submenu is composed by an array of items.
 
 #### options
 
-Type: `object`
+Type: `Object`
 
 You can use any of the [supported options](https://github.com/matryer/bitbar#plugin-api).
 
@@ -88,4 +88,4 @@ Returns a boolean of whether macOS Dark Mode is enabled.
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

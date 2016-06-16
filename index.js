@@ -1,7 +1,10 @@
 'use strict';
 const sep = {};
-const create = (input, opts, menuLevel = 0) => input.map(line => {
+const create = (input, opts, menuLevel) => input.map(line => {
+	menuLevel = menuLevel || 0;
+
 	let submenuText = '';
+
 	if (typeof line === 'string' || typeof line === 'number') {
 		line = {text: line};
 	}
