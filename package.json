@@ -9,8 +9,13 @@
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
+  "contributors": [{
+    "name": "Pedro Fuentes",
+    "email": "git@pedrofuent.es",
+    "url": "pedrofuent.es"
+  }],
   "engines": {
-    "node": ">=0.10.0"
+    "node": ">=6"
   },
   "scripts": {
     "test": "xo && ava"
@@ -26,11 +31,11 @@
     "bit",
     "bar"
   ],
-  "dependencies": {
-    "object-assign": "^4.0.1"
-  },
   "devDependencies": {
     "ava": "*",
     "xo": "*"
+  },
+  "xo": {
+    "esnext": true
   }
 }

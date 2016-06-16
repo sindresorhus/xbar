@@ -32,7 +32,16 @@ bitbar([
 	{
 		text: 'Unicorns',
 		color: '#ff79d7',
-		href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4'
+		submenu: [
+			{
+				text: ':tv: Video',
+				href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4'
+			},
+			{
+				text: ':book: Wiki',
+				href: 'https://en.wikipedia.org/wiki/Unicorn'
+			}
+		]
 	},
 	bitbar.sep,
 	'Ponies'
@@ -53,6 +62,12 @@ Create a file with the above code in the BitBar plugins directory and make sure 
 Type: `array` of `string|object`
 
 An item can be a string with the text or an object with the text in a `text` property and any of the `options`. The text can be multiple lines, but for the first item, only the first line will be shown in the menubar.
+
+##### submenu
+
+Type: `array` of `string|object`
+
+It will add a submenu to the current item. A submenu is composed by an array of items.
 
 #### options
 

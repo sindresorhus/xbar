@@ -1,39 +1,42 @@
 'use strict';
-var objectAssign = require('object-assign');
-var sep = {};
+const sep = {};
+const create = (input, opts, menuLevel = 0) => input.map(line => {
+	let submenuText = '';
+	if (typeof line === 'string' || typeof line === 'number') {
+		line = {text: line};
+	}
 
-function create(input, opts) {
-	return input.map(function (line) {
-		if (typeof line === 'string' || typeof line === 'number') {
-			line = {text: line};
-		}
+	if (line === sep) {
+		return '---';
+	}
 
-		if (line === sep) {
-			return '---';
-		}
+	line = Object.assign(line, opts);
 
-		line = objectAssign(line, opts);
+	const text = String(line.text);
+	delete line.text;
 
-		var text = String(line.text);
-		delete line.text;
+	if (!text) {
+		throw new Error('text required');
+	}
 
-		if (!text) {
-			throw new Error('text required');
-		}
+	if (typeof line.submenu === 'object' && line.submenu.length > 0) {
+		submenuText = `\n${create(line.submenu, opts, menuLevel + 1)}`;
+		delete line.submenu;
+	}
 
-		return text.split('\n').map(function (textLine) {
-			return textLine + '|' + Object.keys(line).map(function (x) {
-				if (x === 'href') {
-					x = encodeURI(x);
-				}
+	const prefix = '--'.repeat(menuLevel);
 
-				return x + '="' + line[x] + '"';
-			}).join(' ');
-		}).join('\n');
-	}).join('\n');
-}
+	return text.split('\n').map(textLine => {
+		const options = Object.keys(line).map(key => {
+			const value = key === 'href' ? encodeURI(line[key]) : line[key];
+			return `${key}="${value}"`;
+		}).join(' ');
 
-module.exports = function (input, opts) {
+		return `${prefix}${textLine}|${options}`;
+	}).join('\n').concat(submenuText);
+}).join('\n');
+
+module.exports = (input, opts) => {
 	console.log(create(input, opts));
 };
 
