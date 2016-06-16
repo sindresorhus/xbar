@@ -21,9 +21,9 @@ const create = (input, opts, menuLevel = 0) => {
 			throw new Error('text required');
 		}
 
-		if (typeof line.submenus === 'object' && line.submenus.length > 0) {
-			submenuText = `\n${create(line.submenus, opts, menuLevel + 1)}`;
-			delete line.submenus;
+		if (typeof line.submenu === 'object' && line.submenu.length > 0) {
+			submenuText = `\n${create(line.submenu, opts, menuLevel + 1)}`;
+			delete line.submenu;
 		}
 
 		const prefix = '--'.repeat(menuLevel);
