@@ -31,7 +31,14 @@ const create = (input, opts, menuLevel) => input.map(line => {
 
 	return text.split('\n').map(textLine => {
 		const options = Object.keys(line).map(key => {
-			const value = key === 'href' ? encodeURI(line[key]) : line[key];
+			let value;
+
+			if (key === 'href') {
+				value = encodeURI(line[key]).replace(/&/g, '%26').replace(/'/g, '%27');
+			} else {
+				value = line[key];
+			}
+
 			return `${key}="${value}"`;
 		}).join(' ');
 
