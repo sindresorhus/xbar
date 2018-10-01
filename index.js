@@ -34,7 +34,7 @@ const create = (input, opts, menuLevel) => input.map(line => {
 			let value;
 
 			if (key === 'href') {
-				value = encodeURI(line[key]);
+				value = encodeURI(line[key]).replace(/&/g, '%26').replace(/'/g, '%27');
 			} else {
 				value = line[key];
 			}
