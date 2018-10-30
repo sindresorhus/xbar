@@ -10,7 +10,7 @@ const create = (input, opts, menuLevel) => input.map(line => {
 	}
 
 	if (line === sep) {
-		return '---';
+		return '--'.repeat(menuLevel) + '---';
 	}
 
 	line = Object.assign(line, opts);
