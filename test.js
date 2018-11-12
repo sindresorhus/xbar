@@ -1,14 +1,14 @@
 import test from 'ava';
-import m from '.';
+import bitbar from '.';
 
-test(t => {
-	const actual = m.create([
+test('main', t => {
+	const actual = bitbar.create([
 		{
 			text: '❤',
 			color: 'red',
 			dropdown: false
 		},
-		m.sep,
+		bitbar.sep,
 		{
 			text: 'Unicorns',
 			color: '#ff79d7',
@@ -25,13 +25,13 @@ test(t => {
 				{
 					text: '1st Level Submenu - B'
 				},
-				m.sep,
+				bitbar.sep,
 				{
 					text: '1st Level Submenu - C'
 				}
 			]
 		},
-		m.sep,
+		bitbar.sep,
 		'Ponies'
 	]);
 

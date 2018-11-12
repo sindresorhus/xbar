@@ -1,44 +1,40 @@
 {
-  "name": "bitbar",
-  "version": "0.3.0",
-  "description": "Simplifies BitBar app plugin creation",
-  "license": "MIT",
-  "repository": "sindresorhus/bitbar",
-  "author": {
-    "name": "Sindre Sorhus",
-    "email": "sindresorhus@gmail.com",
-    "url": "sindresorhus.com"
-  },
-  "contributors": [
-    {
-      "name": "Pedro Fuentes",
-      "email": "git@pedrofuent.es",
-      "url": "pedrofuent.es"
-    }
-  ],
-  "engines": {
-    "node": ">=4"
-  },
-  "scripts": {
-    "test": "xo && ava"
-  },
-  "files": [
-    "index.js"
-  ],
-  "keywords": [
-    "bitbar",
-    "macos",
-    "osx",
-    "menubar",
-    "app",
-    "bit",
-    "bar"
-  ],
-  "devDependencies": {
-    "ava": "*",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true
-  }
+	"name": "bitbar",
+	"version": "0.3.0",
+	"description": "Simplifies BitBar app plugin creation",
+	"license": "MIT",
+	"repository": "sindresorhus/bitbar",
+	"author": {
+		"name": "Sindre Sorhus",
+		"email": "sindresorhus@gmail.com",
+		"url": "sindresorhus.com"
+	},
+	"contributors": [
+		{
+			"name": "Pedro Fuentes",
+			"email": "git@pedrofuent.es",
+			"url": "pedrofuent.es"
+		}
+	],
+	"engines": {
+		"node": ">=6"
+	},
+	"scripts": {
+		"test": "xo && ava"
+	},
+	"files": [
+		"index.js"
+	],
+	"keywords": [
+		"bitbar",
+		"macos",
+		"menubar",
+		"app",
+		"bit",
+		"bar"
+	],
+	"devDependencies": {
+		"ava": "^0.25.0",
+		"xo": "^0.23.0"
+	}
 }
