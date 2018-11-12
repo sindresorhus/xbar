@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from './';
+import m from '.';
 
 test(t => {
 	const actual = m.create([
@@ -24,6 +24,10 @@ test(t => {
 				},
 				{
 					text: '1st Level Submenu - B'
+				},
+				m.sep,
+				{
+					text: '1st Level Submenu - C'
 				}
 			]
 		},
@@ -38,6 +42,8 @@ Unicorns|color="#ff79d7" href="https://www.youtube.com/watch?v=9auOCbH5Ns4"
 --1st Level Submenu - A|
 ----2nd level Submenu|
 --1st Level Submenu - B|
+-----
+--1st Level Submenu - C|
 ---
 Ponies|
 `.trim();
