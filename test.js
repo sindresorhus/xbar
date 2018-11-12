@@ -8,7 +8,7 @@ test('main', t => {
 			color: 'red',
 			dropdown: false
 		},
-		bitbar.sep,
+		bitbar.separator,
 		{
 			text: 'Unicorns',
 			color: '#ff79d7',
@@ -25,13 +25,13 @@ test('main', t => {
 				{
 					text: '1st Level Submenu - B'
 				},
-				bitbar.sep,
+				bitbar.separator,
 				{
 					text: '1st Level Submenu - C'
 				}
 			]
 		},
-		bitbar.sep,
+		bitbar.separator,
 		'Ponies'
 	]);
 

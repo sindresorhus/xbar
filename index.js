@@ -41,6 +41,6 @@ module.exports = (input, options) => {
 	console.log(create(input, options));
 };
 
-module.exports.sep = separator;
+module.exports.separator = separator;
 module.exports.darkMode = process.env.BitBarDarkMode === '1';
 module.exports.create = create;

@@ -6,13 +6,13 @@ Create your plugin using a nice API instead of having to manually construct a bi
 
 *Requires BitBar 1.9 or higher.*
 
-<img src="screenshot.png" width="232">
+<img src="screenshot.png" width="232" height="196">
 
 
 ## Install
 
 ```
-$ npm install --save bitbar
+$ npm install bitbar
 ```
 
 
@@ -28,7 +28,7 @@ bitbar([
 		color: bitbar.darkMode ? 'white' : 'red',
 		dropdown: false
 	},
-	bitbar.sep,
+	bitbar.separator,
 	{
 		text: 'Unicorns',
 		color: '#ff79d7',
@@ -43,7 +43,7 @@ bitbar([
 			}
 		]
 	},
-	bitbar.sep,
+	bitbar.separator,
 	'Ponies'
 ]);
 ```
@@ -77,7 +77,7 @@ You can use any of the [supported options](https://github.com/matryer/bitbar#plu
 
 Applies to all items unless overridden in the item.
 
-### bitbar.sep
+### bitbar.separator
 
 Add a separator.
 
