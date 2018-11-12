@@ -50,3 +50,15 @@ Ponies|
 
 	t.is(actual, expected);
 });
+
+test('`text` property validation', t => {
+	const errorMessage = 'The `text` property is required and should be a string';
+
+	t.throws(() => {
+		bitbar([{dropdown: false}]);
+	}, errorMessage);
+
+	t.throws(() => {
+		bitbar([{text: 1}]);
+	}, errorMessage);
+});

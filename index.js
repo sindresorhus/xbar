@@ -3,9 +3,7 @@
 const separator = Symbol('separator');
 
 const create = (input, options, menuLevel = 0) => input.map(line => {
-	let submenuText = '';
-
-	if (typeof line === 'string' || typeof line === 'number') {
+	if (typeof line === 'string') {
 		line = {text: line};
 	}
 
@@ -15,13 +13,13 @@ const create = (input, options, menuLevel = 0) => input.map(line => {
 
 	line = Object.assign(line, options);
 
-	const text = String(line.text);
+	const {text} = line;
+	if (typeof text !== 'string') {
+		throw new TypeError('The `text` property is required and should be a string');
+	}
 	delete line.text;
 
-	if (!text) {
-		throw new Error('text required');
-	}
-
+	let submenuText = '';
 	if (typeof line.submenu === 'object' && line.submenu.length > 0) {
 		submenuText = `\n${create(line.submenu, options, menuLevel + 1)}`;
 		delete line.submenu;
