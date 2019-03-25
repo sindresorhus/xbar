@@ -51,6 +51,22 @@ Ponies|
 	t.is(actual, expected);
 });
 
+test('test_quotes_encoding_in_href', t => {
+	const actual = bitbar.create([
+		{
+			text: 'Unicorns',
+			color: '#ff79d7',
+			href: 'https://www.youtube.com/watch?v=\'9auOCbH5Ns4&time=2',
+		},
+	]);
+
+	const expected = `
+Unicorns|color="#ff79d7" href="https://www.youtube.com/watch?v=%279auOCbH5Ns4&time=2"
+`.trim();
+
+	t.is(actual, expected);
+});
+
 test('`text` property validation', t => {
 	const errorMessage = 'The `text` property is required and should be a string';
 
