@@ -51,7 +51,7 @@ Ponies|
 	t.is(actual, expected);
 });
 
-test('test_quotes_encoding_in_href', t => {
+test('correctly encodes quotes in the `href` option', t => {
 	const actual = bitbar.create([
 		{
 			text: 'Unicorns',
