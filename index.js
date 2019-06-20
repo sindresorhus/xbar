@@ -27,9 +27,16 @@ const create = (input, options, menuLevel = 0) => input.map(line => {
 
 	const prefix = '--'.repeat(menuLevel);
 
+	function encodeHref(link) {
+		link = encodeURI(link);
+		link = link.replace(/'/g, '%27');
+		link = link.replace(/&/g, '%26');
+		return link;
+	}
+
 	return text.split('\n').map(textLine => {
 		const options = Object.keys(line).map(key => {
-			const value = key === 'href' ? encodeURI(line[key]) : line[key];
+			const value = key === 'href' ? encodeHref(line[key]) : line[key];
 			return `${key}="${value}"`;
 		}).join(' ');
 
