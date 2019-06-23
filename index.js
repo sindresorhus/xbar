@@ -2,6 +2,13 @@
 
 const separator = Symbol('separator');
 
+const encodeHref = url => {
+	url = encodeURI(url);
+	url = url.replace(/'/g, '%27');
+	url = url.replace(/&/g, '%26');
+	return url;
+};
+
 const create = (input, options, menuLevel = 0) => input.map(line => {
 	if (typeof line === 'string') {
 		line = {text: line};
@@ -17,6 +24,7 @@ const create = (input, options, menuLevel = 0) => input.map(line => {
 	if (typeof text !== 'string') {
 		throw new TypeError('The `text` property is required and should be a string');
 	}
+
 	delete line.text;
 
 	let submenuText = '';
@@ -26,13 +34,6 @@ const create = (input, options, menuLevel = 0) => input.map(line => {
 	}
 
 	const prefix = '--'.repeat(menuLevel);
-
-	function encodeHref(link) {
-		link = encodeURI(link);
-		link = link.replace(/'/g, '%27');
-		link = link.replace(/&/g, '%26');
-		return link;
-	}
 
 	return text.split('\n').map(textLine => {
 		const options = Object.keys(line).map(key => {

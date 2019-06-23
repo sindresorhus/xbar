@@ -55,23 +55,23 @@ Create a file with the above code in the BitBar plugins directory and make sure 
 
 ## API
 
-### bitbar(items, [options])
+### bitbar(items, options?)
 
 #### items
 
-Type: `Array<string|Object>`
+Type: `Array<string | object>`
 
 An item can be a string with the text or an object with the text in a `text` property and any of the `options`. The text can be multiple lines, but for the first item, only the first line will be shown in the menubar.
 
 ##### submenu
 
-Type: `Array<string|Object>`
+Type: `Array<string | object>`
 
-It will add a submenu to the current item. A submenu is composed by an array of items.
+It will add a submenu to the current item. A submenu is composed of an array of items.
 
 #### options
 
-Type: `Object`
+Type: `object`
 
 You can use any of the [supported options](https://github.com/matryer/bitbar#plugin-api).
 
@@ -83,9 +83,4 @@ Add a separator.
 
 ### bitbar.darkMode
 
-Returns a boolean of whether macOS Dark Mode is enabled.
-
-
-## License
-
-MIT © [Sindre Sorhus](https://sindresorhus.com)
+A boolean of whether macOS Dark Mode is enabled.
