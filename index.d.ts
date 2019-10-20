@@ -104,7 +104,10 @@ declare namespace bitbar {
 }
 
 declare const bitbar: {
-	(items: (string | bitbar.Options)[], options?: bitbar.BitbarOptions): void;
+	(
+		items: readonly (string | bitbar.Options)[],
+		options?: bitbar.BitbarOptions,
+	): void;
 
 	/**
 	 * Add a separator.
