@@ -1,4 +1,4 @@
-import { expectType } from 'tsd';
+import {expectType} from 'tsd';
 import bitbar = require('.');
 
 expectType<void>(
@@ -12,5 +12,4 @@ expectType<void>(
 );
 
 expectType<symbol>(bitbar.separator);
-
 expectType<boolean>(bitbar.darkMode);
