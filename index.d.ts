@@ -104,6 +104,23 @@ declare namespace bitbar {
 }
 
 declare const bitbar: {
+	/**
+	Create a plugin for BitBar.
+
+	@example
+	```
+	#!/usr/bin/env /usr/local/bin/node
+	const bitbar = require('bitbar');
+
+	bitbar([
+		{
+			text: '❤',
+			color: bitbar.darkMode ? 'white' : 'red',
+			dropdown: false,
+		},
+	]);
+	```
+	*/
 	(
 		items: readonly (string | bitbar.Options)[],
 		options?: bitbar.BitbarOptions,
