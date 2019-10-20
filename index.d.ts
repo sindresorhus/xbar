@@ -1,7 +1,7 @@
 declare namespace bitbar {
 	// Options for the original BitBar program, taken from here:
 	// https://github.com/matryer/bitbar#plugin-api
-	interface BitbarOptions {
+	export interface BitbarOptions {
 		/**
 		 * The text to show. The only required property.
 		 */
@@ -95,7 +95,7 @@ declare namespace bitbar {
 	}
 
 	// Options provided by this module.
-	interface Options extends BitbarOptions {
+	export interface Options extends BitbarOptions {
 		/**
 		 * Add a submenu to the item. A submenu is composed of an array of items.
 		 */
