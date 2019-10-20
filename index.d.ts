@@ -112,12 +112,12 @@ declare const bitbar: {
 	/**
 	 * Add a separator.
 	 */
-	separator: symbol;
+	readonly separator: unique symbol;
 
 	/**
 	 * Check that dark mode is enabled.
 	 */
-	darkMode: boolean;
+	readonly darkMode: boolean;
 };
 
 export = bitbar;
