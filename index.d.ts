@@ -118,6 +118,9 @@ declare const bitbar: {
 		},
 	]);
 	```
+
+	@param items - BitBar items
+	@param [options] - Options for all BitBar items.
 	*/
 	(
 		items: readonly (string | bitbar.Options)[],
