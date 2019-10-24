@@ -11,5 +11,5 @@ expectType<void>(
 	]),
 );
 
-expectType<symbol>(bitbar.separator);
+expectType<Symbol>(bitbar.separator);
 expectType<boolean>(bitbar.darkMode);
