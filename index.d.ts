@@ -1,5 +1,4 @@
 declare namespace bitbar {
-	// Options for the original BitBar program, taken from here: https://github.com/matryer/bitbar#plugin-api
 	export interface BitbarOptions {
 		/**
 		The text to show. The only required property.
@@ -92,7 +91,6 @@ declare namespace bitbar {
 		ansi?: boolean;
 	}
 
-	// Options provided by this module.
 	export interface Options extends BitbarOptions {
 		/**
 		Add a submenu to the item. A submenu is composed of an array of items.
@@ -105,10 +103,13 @@ declare const bitbar: {
 	/**
 	Create a plugin for BitBar.
 
+	@param items - BitBar items
+	@param [options] - Options for all BitBar items.
+
 	@example
 	```
 	#!/usr/bin/env /usr/local/bin/node
-	const bitbar = require('bitbar');
+	import bitbar = require('bitbar');
 
 	bitbar([
 		{
@@ -118,9 +119,6 @@ declare const bitbar: {
 		},
 	]);
 	```
-
-	@param items - BitBar items
-	@param [options] - Options for all BitBar items.
 	*/
 	(
 		items: readonly (string | bitbar.Options)[],
