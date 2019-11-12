@@ -65,8 +65,7 @@ declare namespace bitbar {
 		trim?: boolean;
 
 		/**
-		Mark the line as an alternate to the previous line, for when the Option
-		key is pressed, in the dropdown.
+		Mark the line as an alternate to the previous line, for when the Option key is pressed, in the dropdown.
 		*/
 		alternate?: boolean;
 
