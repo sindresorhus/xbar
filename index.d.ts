@@ -71,7 +71,7 @@ declare namespace bitbar {
 		alternate?: boolean;
 
 		/**
-		Set an image for the item. It must be a base64 encoded string.
+		Set an image for the item. It must be a Base64 encoded string.
 		*/
 		templateImage?: string;
 
