@@ -1,5 +1,5 @@
 declare namespace bitbar {
-	export interface BitbarOptions {
+	interface BitbarOptions {
 		/**
 		The text to show. The only required property.
 		*/
