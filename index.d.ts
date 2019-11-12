@@ -81,7 +81,7 @@ declare namespace bitbar {
 		image?: string;
 
 		/**
-		Convert text to emojis, such as :mushroom:.
+		Convert text to emojis, such as `:mushroom:`.
 		*/
 		emojize?: boolean;
 
