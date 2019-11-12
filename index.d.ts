@@ -6,7 +6,7 @@ declare namespace bitbar {
 		text: string;
 
 		/**
-		Make the item clickable.
+		The URL that will open, when this item is clicked.
 		*/
 		href?: string;
 
