@@ -6,7 +6,7 @@ declare namespace bitbar {
 		text: string;
 
 		/**
-		The URL that will open, when this item is clicked.
+		The URL that will be opened when the menu item is clicked.
 		*/
 		href?: string;
 
@@ -102,8 +102,8 @@ declare const bitbar: {
 	/**
 	Create a plugin for BitBar.
 
-	@param items - BitBar items
-	@param [options] - Options for all BitBar items.
+	@param items - BitBar items.
+	@param options - Options for all BitBar items.
 
 	@example
 	```
@@ -130,7 +130,7 @@ declare const bitbar: {
 	readonly separator: unique symbol;
 
 	/**
-	Check that dark mode is enabled.
+	Check whether dark mode is enabled.
 	*/
 	readonly darkMode: boolean;
 };
