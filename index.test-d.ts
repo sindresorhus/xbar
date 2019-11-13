@@ -6,10 +6,9 @@ expectType<void>(
 		{
 			text: '❤',
 			color: bitbar.darkMode ? 'white' : 'red',
-			dropdown: false,
+			dropdown: false
 		},
 	]),
 );
 
-expectType<symbol>(bitbar.separator);
 expectType<boolean>(bitbar.darkMode);
