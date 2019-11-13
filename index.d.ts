@@ -31,7 +31,7 @@ declare namespace bitbar {
 		bash?: string;
 
 		/**
-		Params to specify as arguments for the script, specified in `bash`. There are up to 5 params available in BitBar.
+		Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
 		*/
 		param1?: string;
 		param2?: string;
