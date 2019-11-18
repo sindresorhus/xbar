@@ -120,7 +120,7 @@ declare const bitbar: {
 	```
 	*/
 	(
-		items: readonly (string | bitbar.Options)[],
+		items: readonly (string | bitbar.Options | symbol)[],
 		options?: bitbar.BitbarOptions,
 	): void;
 

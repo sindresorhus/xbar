@@ -8,7 +8,8 @@ expectType<void>(
 			color: bitbar.darkMode ? 'white' : 'red',
 			dropdown: false
 		},
-	]),
+		bitbar.separator
+	])
 );
 
 expectType<boolean>(bitbar.darkMode);
