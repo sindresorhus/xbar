@@ -18,7 +18,7 @@ const create = (input, options, menuLevel = 0) => input.map(line => {
 		return '--'.repeat(menuLevel) + '---';
 	}
 
-	line = Object.assign(line, options);
+	line = {...options, ...line};
 
 	const {text} = line;
 	if (typeof text !== 'string') {
