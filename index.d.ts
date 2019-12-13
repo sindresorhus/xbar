@@ -94,7 +94,7 @@ declare namespace bitbar {
 		/**
 		Add a submenu to the item. A submenu is composed of an array of items.
 		*/
-		submenu?: (string | BitbarOptions)[];
+		submenu?: (string | Options)[];
 	}
 }
 
