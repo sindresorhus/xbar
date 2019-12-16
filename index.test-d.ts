@@ -1,4 +1,4 @@
-import { expectAssignable, expectNotAssignable, expectType } from 'tsd';
+import {expectAssignable, expectNotAssignable, expectType} from 'tsd';
 import bitbar = require('.')
 
 expectType<void>(
