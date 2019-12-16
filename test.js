@@ -86,3 +86,24 @@ Ampercent|href="https://www.youtube.com/watch?v=%269auOCbH5Ns4"
 
 	t.is(actual, expected);
 });
+
+test('correctly overrides global settings', t => {
+	const actual = bitbar.create([
+		{
+			text: 'Default font'
+		},
+		{
+			text: 'Overriden font',
+			font: 'Comic Sans MS'
+		}
+	], {
+		font: 'Arial'
+	});
+
+	const expected = `
+Default font|font="Arial"
+Overriden font|font="Comic Sans MS"
+`.trim();
+
+	t.is(actual, expected);
+});
