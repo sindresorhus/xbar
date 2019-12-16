@@ -4,6 +4,7 @@
 	"description": "Simplifies BitBar app plugin creation",
 	"license": "MIT",
 	"repository": "sindresorhus/bitbar",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
@@ -29,7 +30,7 @@
 	],
 	"devDependencies": {
 		"ava": "^2.1.0",
-		"tsd": "^0.9.0",
-		"xo": "^0.24.0"
+		"tsd": "^0.11.0",
+		"xo": "^0.25.3"
 	}
 }

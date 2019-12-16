@@ -8,13 +8,11 @@ Create your plugin using a nice API instead of having to manually construct a bi
 
 <img src="screenshot.png" width="232" height="196">
 
-
 ## Install
 
 ```
 $ npm install bitbar
 ```
-
 
 ## Usage
 
@@ -51,7 +49,6 @@ bitbar([
 Create a file with the above code in the BitBar plugins directory and make sure to `chmod +x filename.js` it. [Read more.](https://github.com/matryer/bitbar#installing-plugins)
 
 *Change `/usr/local/bin/node` to the path of your Node.js binary. This is a [known issue](https://github.com/matryer/bitbar/issues/36) in BitBar.*
-
 
 ## API
 

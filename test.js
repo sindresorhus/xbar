@@ -87,7 +87,7 @@ Ampercent|href="https://www.youtube.com/watch?v=%269auOCbH5Ns4"
 	t.is(actual, expected);
 });
 
-test('correctly overrides global settings', t => {
+test('item options overrides top-level options', t => {
 	const actual = bitbar.create([
 		{
 			text: 'Default font'
