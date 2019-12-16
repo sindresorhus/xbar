@@ -96,6 +96,8 @@ declare namespace bitbar {
 		*/
 		submenu?: (string | Options)[];
 	}
+
+	export type TopLevelOptions = Omit<Options, 'text'>
 }
 
 declare const bitbar: {
@@ -121,7 +123,7 @@ declare const bitbar: {
 	*/
 	(
 		items: readonly (string | bitbar.Options | typeof bitbar.separator)[],
-		options?: bitbar.BitbarOptions
+		options?: bitbar.TopLevelOptions
 	): void;
 
 	/**
