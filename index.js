@@ -9,48 +9,50 @@ const encodeHref = url => {
 	return url;
 };
 
-const create = (input, options, menuLevel = 0) => input.map(line => {
-	if (typeof line === 'string') {
-		line = {text: line};
+const create = (input, options = {}, menuLevel = 0) => {
+	if (typeof options.text !== 'undefined') {
+		throw new TypeError('The `text` option is not supported as a top-level option. Use it on an item instead.');
 	}
 
-	if (line === separator) {
-		return '--'.repeat(menuLevel) + '---';
-	}
+	return input.map(line => {
+		if (typeof line === 'string') {
+			line = {text: line};
+		}
 
-	if (options && typeof options.text !== 'undefined') {
-		throw new TypeError('The `text` property is not supported on top-level options. Use the `text` property on an item instead');
-	}
+		if (line === separator) {
+			return '--'.repeat(menuLevel) + '---';
+		}
 
-	line = {
-		...options,
-		...line
-	};
+		line = {
+			...options,
+			...line
+		};
 
-	const {text} = line;
-	if (typeof text !== 'string') {
-		throw new TypeError('The `text` property is required and should be a string');
-	}
+		const {text} = line;
+		if (typeof text !== 'string') {
+			throw new TypeError('The `text` property is required and should be a string');
+		}
 
-	delete line.text;
+		delete line.text;
 
-	let submenuText = '';
-	if (typeof line.submenu === 'object' && line.submenu.length > 0) {
-		submenuText = `\n${create(line.submenu, options, menuLevel + 1)}`;
-		delete line.submenu;
-	}
+		let submenuText = '';
+		if (typeof line.submenu === 'object' && line.submenu.length > 0) {
+			submenuText = `\n${create(line.submenu, options, menuLevel + 1)}`;
+			delete line.submenu;
+		}
 
-	const prefix = '--'.repeat(menuLevel);
+		const prefix = '--'.repeat(menuLevel);
 
-	return text.split('\n').map(textLine => {
-		const options = Object.keys(line).map(key => {
-			const value = key === 'href' ? encodeHref(line[key]) : line[key];
-			return `${key}="${value}"`;
-		}).join(' ');
+		return text.split('\n').map(textLine => {
+			const options = Object.keys(line).map(key => {
+				const value = key === 'href' ? encodeHref(line[key]) : line[key];
+				return `${key}="${value}"`;
+			}).join(' ');
 
-		return `${prefix}${textLine}|${options}`;
-	}).join('\n').concat(submenuText);
-}).join('\n');
+			return `${prefix}${textLine}|${options}`;
+		}).join('\n').concat(submenuText);
+	}).join('\n');
+};
 
 module.exports = (input, options) => {
 	console.log(create(input, options));

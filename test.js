@@ -109,7 +109,7 @@ Overriden font|font="Comic Sans MS"
 });
 
 test('`text` property on top-level options throws TypeError', t => {
-	const errorMessage = 'The `text` property is not supported on top-level options. Use the `text` property on an item instead';
+	const errorMessage = 'The `text` option is not supported as a top-level option. Use it on an item instead.';
 
 	t.throws(() => {
 		bitbar([
