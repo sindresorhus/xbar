@@ -18,6 +18,10 @@ const create = (input, options, menuLevel = 0) => input.map(line => {
 		return '--'.repeat(menuLevel) + '---';
 	}
 
+	if (options && typeof options.text !== 'undefined') {
+		throw new TypeError('The `text` property is not supported on top-level options. Use the `text` property on an item instead');
+	}
+
 	line = {
 		...options,
 		...line

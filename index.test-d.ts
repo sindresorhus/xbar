@@ -1,5 +1,5 @@
-import {expectType} from 'tsd';
-import bitbar = require('.');
+import {expectAssignable, expectNotAssignable, expectType} from 'tsd';
+import bitbar = require('.')
 
 expectType<void>(
 	bitbar([
@@ -29,3 +29,7 @@ expectType<void>(
 );
 
 expectType<boolean>(bitbar.darkMode);
+
+expectNotAssignable<bitbar.TopLevelOptions>({text: 'Unicorns'})
+
+expectAssignable<bitbar.TopLevelOptions>({font: 'Comic Sans MS'})
