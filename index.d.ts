@@ -98,43 +98,41 @@ declare namespace bitbar {
 	}
 
 	export type TopLevelOptions = Omit<Options, 'text'>
-}
-
-declare const bitbar: {
-	/**
-	Create a plugin for BitBar.
-
-	@param items - BitBar items.
-	@param options - Options for all BitBar items.
-
-	@example
-	```
-	#!/usr/bin/env /usr/local/bin/node
-	import bitbar = require('bitbar');
-
-	bitbar([
-		{
-			text: '❤',
-			color: bitbar.darkMode ? 'white' : 'red',
-			dropdown: false,
-		},
-	]);
-	```
-	*/
-	(
-		items: readonly (string | bitbar.Options | typeof bitbar.separator)[],
-		options?: bitbar.TopLevelOptions
-	): void;
 
 	/**
 	Add a separator.
 	*/
-	readonly separator: unique symbol;
+	export const separator: unique symbol;
 
 	/**
 	Check whether dark mode is enabled.
 	*/
-	readonly darkMode: boolean;
-};
+	export const darkMode: boolean;
+}
+
+/**
+Create a plugin for BitBar.
+
+@param items - BitBar items.
+@param options - Options for all BitBar items.
+
+@example
+```
+#!/usr/bin/env /usr/local/bin/node
+import bitbar = require('bitbar');
+
+bitbar([
+	{
+		text: '❤',
+		color: bitbar.darkMode ? 'white' : 'red',
+		dropdown: false,
+	},
+]);
+```
+*/
+declare function bitbar(
+	items: readonly (string | bitbar.Options | typeof bitbar.separator)[],
+	options?: bitbar.TopLevelOptions
+): void;
 
 export = bitbar;
