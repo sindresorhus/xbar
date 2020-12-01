@@ -1,4 +1,4 @@
-# bitbar [![Build Status](https://travis-ci.org/sindresorhus/bitbar.svg?branch=master)](https://travis-ci.org/sindresorhus/bitbar)
+# bitbar
 
 > Simplifies [BitBar](https://github.com/matryer/bitbar) app plugin creation
 
