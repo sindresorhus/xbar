@@ -10,23 +10,23 @@ Create your plugin using a nice API instead of having to manually construct a bi
 
 ## Install
 
-```
-$ npm install bitbar
+```sh
+npm install bitbar
 ```
 
 ## Usage
 
 ```js
-#!/usr/bin/env /usr/local/bin/node
-const bitbar = require('bitbar');
+#!/usr/bin/env node --input-type=module
+import bitbar, {separator, isDarkMode} from 'bitbar';
 
 bitbar([
 	{
 		text: '❤',
-		color: bitbar.darkMode ? 'white' : 'red',
+		color: isDarkMode ? 'white' : 'red',
 		dropdown: false
 	},
-	bitbar.separator,
+	separator,
 	{
 		text: 'Unicorns',
 		color: '#ff79d7',
@@ -41,14 +41,14 @@ bitbar([
 			}
 		]
 	},
-	bitbar.separator,
+	separator,
 	'Ponies'
 ]);
 ```
 
 Create a file with the above code in the BitBar plugins directory and make sure to `chmod +x filename.js` it. [Read more.](https://github.com/matryer/bitbar#installing-plugins)
 
-*Change `/usr/local/bin/node` to the path of your Node.js binary. This is a [known issue](https://github.com/matryer/bitbar/issues/36) in BitBar.*
+*Change `node` in `#!/usr/bin/env node` to the path of your Node.js binary. This is a [known issue](https://github.com/matryer/bitbar/issues/36) in BitBar.*
 
 ## API
 
@@ -74,10 +74,10 @@ You can use any of the [supported options](https://github.com/matryer/bitbar#plu
 
 Applies to all items unless overridden in the item.
 
-### bitbar.separator
+### separator
 
 Add a separator.
 
-### bitbar.darkMode
+### isDarkMode
 
-A boolean of whether macOS Dark Mode is enabled.
+A boolean of whether macOS dark mode is enabled.

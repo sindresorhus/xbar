@@ -1,14 +1,14 @@
 import test from 'ava';
-import bitbar from '.';
+import bitbar, {_create, separator} from './index.js';
 
 test('main', t => {
-	const actual = bitbar.create([
+	const actual = _create([
 		{
 			text: '❤',
 			color: 'red',
-			dropdown: false
+			dropdown: false,
 		},
-		bitbar.separator,
+		separator,
 		{
 			text: 'Unicorns',
 			color: '#ff79d7',
@@ -18,21 +18,21 @@ test('main', t => {
 					text: '1st Level Submenu - A',
 					submenu: [
 						{
-							text: '2nd level Submenu'
-						}
-					]
+							text: '2nd level Submenu',
+						},
+					],
 				},
 				{
-					text: '1st Level Submenu - B'
+					text: '1st Level Submenu - B',
 				},
-				bitbar.separator,
+				separator,
 				{
-					text: '1st Level Submenu - C'
-				}
-			]
+					text: '1st Level Submenu - C',
+				},
+			],
 		},
-		bitbar.separator,
-		'Ponies'
+		separator,
+		'Ponies',
 	]);
 
 	const expected = `
@@ -56,27 +56,27 @@ test('`text` property validation', t => {
 
 	t.throws(() => {
 		bitbar([{dropdown: false}]);
-	}, errorMessage);
+	}, {message: errorMessage});
 
 	t.throws(() => {
 		bitbar([{text: 1}]);
-	}, errorMessage);
+	}, {message: errorMessage});
 });
 
 test('correctly encodes special characters in the `href` option', t => {
-	const actual = bitbar.create([
+	const actual = _create([
 		{
 			text: 'Single Quote',
-			href: 'https://www.youtube.com/watch?v=\'9auOCbH5Ns4'
+			href: 'https://www.youtube.com/watch?v=\'9auOCbH5Ns4',
 		},
 		{
 			text: 'Double Quotes',
-			href: 'https://www.youtube.com/watch?v="9auOCbH5Ns4"'
+			href: 'https://www.youtube.com/watch?v="9auOCbH5Ns4"',
 		},
 		{
 			text: 'Ampercent',
-			href: 'https://www.youtube.com/watch?v=&9auOCbH5Ns4'
-		}
+			href: 'https://www.youtube.com/watch?v=&9auOCbH5Ns4',
+		},
 	]);
 	const expected = `
 Single Quote|href="https://www.youtube.com/watch?v=%279auOCbH5Ns4"
@@ -88,16 +88,16 @@ Ampercent|href="https://www.youtube.com/watch?v=%269auOCbH5Ns4"
 });
 
 test('item options overrides top-level options', t => {
-	const actual = bitbar.create([
+	const actual = _create([
 		{
-			text: 'Default font'
+			text: 'Default font',
 		},
 		{
 			text: 'Overriden font',
-			font: 'Comic Sans MS'
-		}
+			font: 'Comic Sans MS',
+		},
 	], {
-		font: 'Arial'
+		font: 'Arial',
 	});
 
 	const expected = `
@@ -114,10 +114,10 @@ test('`text` property on top-level options throws TypeError', t => {
 	t.throws(() => {
 		bitbar([
 			{
-				text: '❤'
-			}
+				text: '❤',
+			},
 		], {
-			text: 'Override'
+			text: 'Override',
 		});
-	}, errorMessage);
+	}, {message: errorMessage});
 });

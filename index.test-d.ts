@@ -1,35 +1,35 @@
 import {expectAssignable, expectNotAssignable, expectType} from 'tsd';
-import bitbar = require('.')
+import bitbar, {TopLevelOptions, separator, isDarkMode} from './index.js';
 
 expectType<void>(
 	bitbar([
 		{
 			text: '❤',
-			color: bitbar.darkMode ? 'white' : 'red',
-			dropdown: false
+			color: isDarkMode ? 'white' : 'red',
+			dropdown: false,
 		},
-		bitbar.separator,
+		separator,
 		{
 			text: 'Unicorns',
 			color: '#ff79d7',
 			submenu: [
 				{
 					text: ':tv: Video',
-					href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4'
+					href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4',
 				},
 				{
 					text: ':book: Wiki',
-					href: 'https://en.wikipedia.org/wiki/Unicorn'
-				}
-			]
+					href: 'https://en.wikipedia.org/wiki/Unicorn',
+				},
+			],
 		},
-		bitbar.separator,
-		'Ponies'
-	])
+		separator,
+		'Ponies',
+	]),
 );
 
-expectType<boolean>(bitbar.darkMode);
+expectType<boolean>(isDarkMode);
 
-expectNotAssignable<bitbar.TopLevelOptions>({text: 'Unicorns'})
+expectNotAssignable<TopLevelOptions>({text: 'Unicorns'});
 
-expectAssignable<bitbar.TopLevelOptions>({font: 'Comic Sans MS'})
+expectAssignable<TopLevelOptions>({font: 'Comic Sans MS'});

@@ -1,114 +1,128 @@
-declare namespace bitbar {
-	interface BitbarOptions {
-		/**
-		The text to show. The only required property.
-		*/
-		text: string;
-
-		/**
-		The URL that will be opened when the menu item is clicked.
-		*/
-		href?: string;
-
-		/**
-		Change the text color.
-		*/
-		color?: string;
-
-		/**
-		Change the text font.
-		*/
-		font?: string;
-
-		/**
-		Change the text size.
-		*/
-		size?: number;
-
-		/**
-		Run a script.
-		*/
-		bash?: string;
-
-		/**
-		Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
-		*/
-		param1?: string;
-		param2?: string;
-		param3?: string;
-		param4?: string;
-		param5?: string;
-
-		/**
-		Start the script with Terminal.
-		*/
-		terminal?: boolean;
-
-		/**
-		Refresh the plugin.
-		*/
-		refresh?: boolean;
-
-		/**
-		Show the item in the dropdown.
-		*/
-		dropdown?: boolean;
-
-		/**
-		Truncate the line to the specified number of characters.
-		*/
-		length?: number;
-
-		/**
-		Trim the leading and trailing whitespace from the text.
-		*/
-		trim?: boolean;
-
-		/**
-		Mark the line as an alternate to the previous line, for when the Option key is pressed, in the dropdown.
-		*/
-		alternate?: boolean;
-
-		/**
-		Set an image for the item. It must be a Base64 encoded string.
-		*/
-		templateImage?: string;
-
-		/**
-		Set an image for this item. It must be a base64 encoded string.
-		*/
-		image?: string;
-
-		/**
-		Convert text to emojis, such as `:mushroom:`.
-		*/
-		emojize?: boolean;
-
-		/**
-		Enable parsing of ANSI codes.
-		*/
-		ansi?: boolean;
-	}
-
-	export interface Options extends BitbarOptions {
-		/**
-		Add a submenu to the item. A submenu is composed of an array of items.
-		*/
-		submenu?: (string | Options | typeof separator)[];
-	}
-
-	export type TopLevelOptions = Omit<Options, 'text'>
+interface BitbarOptions {
+	/**
+	The text to show. The only required property.
+	*/
+	readonly text: string;
 
 	/**
-	Add a separator.
+	The URL that will be opened when the menu item is clicked.
 	*/
-	export const separator: unique symbol;
+	readonly href?: string;
 
 	/**
-	Check whether dark mode is enabled.
+	Change the text color.
 	*/
-	export const darkMode: boolean;
+	readonly color?: string;
+
+	/**
+	Change the text font.
+	*/
+	readonly font?: string;
+
+	/**
+	Change the text size.
+	*/
+	readonly size?: number;
+
+	/**
+	Run a script.
+	*/
+	readonly bash?: string;
+
+	/**
+	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	*/
+	readonly param1?: string;
+
+	/**
+	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	*/
+	readonly param2?: string;
+
+	/**
+	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	*/
+	readonly param3?: string;
+
+	/**
+	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	*/
+	readonly param4?: string;
+
+	/**
+	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	*/
+	readonly param5?: string;
+
+	/**
+	Start the script with Terminal.
+	*/
+	readonly terminal?: boolean;
+
+	/**
+	Refresh the plugin.
+	*/
+	readonly refresh?: boolean;
+
+	/**
+	Show the item in the dropdown.
+	*/
+	readonly dropdown?: boolean;
+
+	/**
+	Truncate the line to the specified number of characters.
+	*/
+	readonly length?: number;
+
+	/**
+	Trim the leading and trailing whitespace from the text.
+	*/
+	readonly trim?: boolean;
+
+	/**
+	Mark the line as an alternate to the previous line, for when the Option key is pressed, in the dropdown.
+	*/
+	readonly alternate?: boolean;
+
+	/**
+	Set an image for the item. It must be a Base64 encoded string.
+	*/
+	readonly templateImage?: string;
+
+	/**
+	Set an image for this item. It must be a base64 encoded string.
+	*/
+	readonly image?: string;
+
+	/**
+	Convert text to emojis, such as `:mushroom:`.
+	*/
+	readonly emojize?: boolean;
+
+	/**
+	Enable parsing of ANSI codes.
+	*/
+	readonly ansi?: boolean;
 }
+
+export interface Options extends BitbarOptions {
+	/**
+	Add a submenu to the item. A submenu is composed of an array of items.
+	*/
+	readonly submenu?: Array<string | Options | typeof separator>;
+}
+
+export type TopLevelOptions = Omit<Options, 'text'>; // eslint-disable-line @typescript-eslint/ban-types
+
+/**
+Add a separator.
+*/
+export const separator: unique symbol;
+
+/**
+Check whether dark mode is enabled.
+*/
+export const isDarkMode: boolean;
 
 /**
 Create a plugin for BitBar.
@@ -118,21 +132,36 @@ Create a plugin for BitBar.
 
 @example
 ```
-#!/usr/bin/env /usr/local/bin/node
-import bitbar = require('bitbar');
+#!/usr/bin/env node --input-type=module
+import bitbar, {separator, isDarkMode} from 'bitbar';
 
 bitbar([
 	{
 		text: '❤',
-		color: bitbar.darkMode ? 'white' : 'red',
-		dropdown: false,
+		color: isDarkMode ? 'white' : 'red',
+		dropdown: false
 	},
+	separator,
+	{
+		text: 'Unicorns',
+		color: '#ff79d7',
+		submenu: [
+			{
+				text: ':tv: Video',
+				href: 'https://www.youtube.com/watch?v=9auOCbH5Ns4'
+			},
+			{
+				text: ':book: Wiki',
+				href: 'https://en.wikipedia.org/wiki/Unicorn'
+			}
+		]
+	},
+	separator,
+	'Ponies'
 ]);
 ```
 */
-declare function bitbar(
-	items: readonly (string | bitbar.Options | typeof bitbar.separator)[],
-	options?: bitbar.TopLevelOptions
+export default function bitbar(
+	items: ReadonlyArray<string | Options | typeof separator>,
+	options?: TopLevelOptions
 ): void;
-
-export = bitbar;

@@ -1,6 +1,8 @@
-'use strict';
+import process from 'node:process';
 
-const separator = Symbol('separator');
+export const separator = Symbol('separator');
+
+export const isDarkMode = process.env.BitBarDarkMode === '1';
 
 const encodeHref = url => {
 	url = encodeURI(url);
@@ -9,7 +11,7 @@ const encodeHref = url => {
 	return url;
 };
 
-const create = (input, options = {}, menuLevel = 0) => {
+export const _create = (input, options = {}, menuLevel = 0) => {
 	if (typeof options.text !== 'undefined') {
 		throw new TypeError('The `text` option is not supported as a top-level option. Use it on an item instead.');
 	}
@@ -25,7 +27,7 @@ const create = (input, options = {}, menuLevel = 0) => {
 
 		line = {
 			...options,
-			...line
+			...line,
 		};
 
 		const {text} = line;
@@ -37,27 +39,23 @@ const create = (input, options = {}, menuLevel = 0) => {
 
 		let submenuText = '';
 		if (typeof line.submenu === 'object' && line.submenu.length > 0) {
-			submenuText = `\n${create(line.submenu, options, menuLevel + 1)}`;
+			submenuText = `\n${_create(line.submenu, options, menuLevel + 1)}`;
 			delete line.submenu;
 		}
 
 		const prefix = '--'.repeat(menuLevel);
 
 		return text.split('\n').map(textLine => {
-			const options = Object.keys(line).map(key => {
-				const value = key === 'href' ? encodeHref(line[key]) : line[key];
-				return `${key}="${value}"`;
+			const options = Object.entries(line).map(([key, value]) => {
+				const finalValue = key === 'href' ? encodeHref(value) : value;
+				return `${key}="${finalValue}"`;
 			}).join(' ');
 
 			return `${prefix}${textLine}|${options}`;
-		}).join('\n').concat(submenuText);
+		}).join('\n') + submenuText;
 	}).join('\n');
 };
 
-module.exports = (input, options) => {
-	console.log(create(input, options));
-};
-
-module.exports.separator = separator;
-module.exports.darkMode = process.env.BitBarDarkMode === '1';
-module.exports.create = create;
+export default function bitbar(input, options) {
+	console.log(_create(input, options));
+}
