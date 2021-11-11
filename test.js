@@ -1,5 +1,5 @@
 import test from 'ava';
-import bitbar, {_create, separator} from './index.js';
+import xbar, {_create, separator} from './index.js';
 
 test('main', t => {
 	const actual = _create([
@@ -55,11 +55,11 @@ test('`text` property validation', t => {
 	const errorMessage = 'The `text` property is required and should be a string';
 
 	t.throws(() => {
-		bitbar([{dropdown: false}]);
+		xbar([{dropdown: false}]);
 	}, {message: errorMessage});
 
 	t.throws(() => {
-		bitbar([{text: 1}]);
+		xbar([{text: 1}]);
 	}, {message: errorMessage});
 });
 
@@ -112,7 +112,7 @@ test('`text` property on top-level options throws TypeError', t => {
 	const errorMessage = 'The `text` option is not supported as a top-level option. Use it on an item instead.';
 
 	t.throws(() => {
-		bitbar([
+		xbar([
 			{
 				text: '❤',
 			},

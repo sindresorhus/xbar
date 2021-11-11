@@ -1,26 +1,26 @@
-# bitbar
+# xbar
 
-> Simplifies [BitBar](https://github.com/matryer/bitbar) app plugin creation
+> Simplifies [xbar](https://github.com/matryer/xbar) (previous known as BitBar) app plugin creation
 
 Create your plugin using a nice API instead of having to manually construct a big string.
 
-*Requires BitBar 1.9 or higher.*
+*Requires xbar v2 or later.*
 
 <img src="screenshot.png" width="232" height="196">
 
 ## Install
 
 ```sh
-npm install bitbar
+npm install @sindresorhus/xbar
 ```
 
 ## Usage
 
 ```js
 #!/usr/bin/env node --input-type=module
-import bitbar, {separator, isDarkMode} from 'bitbar';
+import xbar, {separator, isDarkMode} from '@sindresorhus/xbar';
 
-bitbar([
+xbar([
 	{
 		text: '❤',
 		color: isDarkMode ? 'white' : 'red',
@@ -46,13 +46,13 @@ bitbar([
 ]);
 ```
 
-Create a file with the above code in the BitBar plugins directory and make sure to `chmod +x filename.js` it. [Read more.](https://github.com/matryer/bitbar#installing-plugins)
+Create a file with the above code in the xbar plugins directory and make sure to `chmod +x filename.js` it. [Read more.](https://github.com/matryer/xbar#installing-plugins)
 
-*Change `node` in `#!/usr/bin/env node` to the path of your Node.js binary. This is a [known issue](https://github.com/matryer/bitbar/issues/36) in BitBar.*
+*Change `node` in `#!/usr/bin/env node` to the path of your Node.js binary. This is a [known issue](https://github.com/matryer/xbar/issues/36) in xbar.*
 
 ## API
 
-### bitbar(items, options?)
+### xbar(items, options?)
 
 #### items
 
@@ -70,7 +70,7 @@ It will add a submenu to the current item. A submenu is composed of an array of 
 
 Type: `object`
 
-You can use any of the [supported options](https://github.com/matryer/bitbar#plugin-api).
+You can use any of the [supported options](https://github.com/matryer/xbar-plugins/blob/main/CONTRIBUTING.md#plugin-api).
 
 Applies to all items unless overridden in the item.
 

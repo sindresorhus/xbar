@@ -1,8 +1,8 @@
 import {expectAssignable, expectNotAssignable, expectType} from 'tsd';
-import bitbar, {TopLevelOptions, separator, isDarkMode} from './index.js';
+import xbar, {TopLevelOptions, separator, isDarkMode} from './index.js';
 
 expectType<void>(
-	bitbar([
+	xbar([
 		{
 			text: '❤',
 			color: isDarkMode ? 'white' : 'red',

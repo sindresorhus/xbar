@@ -1,9 +1,9 @@
 {
-	"name": "bitbar",
+	"name": "@sindresorhus/xbar",
 	"version": "2.0.0",
-	"description": "Simplifies BitBar app plugin creation",
+	"description": "Simplifies xbar (previously known as BitBar) app plugin creation",
 	"license": "MIT",
-	"repository": "sindresorhus/bitbar",
+	"repository": "sindresorhus/xbar",
 	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
@@ -23,6 +23,7 @@
 		"index.d.ts"
 	],
 	"keywords": [
+		"xbar",
 		"bitbar",
 		"macos",
 		"menubar",

@@ -1,4 +1,4 @@
-interface BitbarOptions {
+interface XbarOptions {
 	/**
 	The text to show. The only required property.
 	*/
@@ -30,27 +30,27 @@ interface BitbarOptions {
 	readonly bash?: string;
 
 	/**
-	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	Parameters to specify as arguments for the script, specified in `bash`.
 	*/
 	readonly param1?: string;
 
 	/**
-	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	Parameters to specify as arguments for the script, specified in `bash`.
 	*/
 	readonly param2?: string;
 
 	/**
-	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	Parameters to specify as arguments for the script, specified in `bash`.
 	*/
 	readonly param3?: string;
 
 	/**
-	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	Parameters to specify as arguments for the script, specified in `bash`.
 	*/
 	readonly param4?: string;
 
 	/**
-	Parameters to specify as arguments for the script, specified in `bash`. There are up to 5 parameters available in BitBar.
+	Parameters to specify as arguments for the script, specified in `bash`.
 	*/
 	readonly param5?: string;
 
@@ -105,7 +105,7 @@ interface BitbarOptions {
 	readonly ansi?: boolean;
 }
 
-export interface Options extends BitbarOptions {
+export interface Options extends XbarOptions {
 	/**
 	Add a submenu to the item. A submenu is composed of an array of items.
 	*/
@@ -125,17 +125,17 @@ Check whether dark mode is enabled.
 export const isDarkMode: boolean;
 
 /**
-Create a plugin for BitBar.
+Create a plugin for xbar.
 
-@param items - BitBar items.
-@param options - Options for all BitBar items.
+@param items - xbar items.
+@param options - Options for all xbar items.
 
 @example
 ```
 #!/usr/bin/env node --input-type=module
-import bitbar, {separator, isDarkMode} from 'bitbar';
+import xbar, {separator, isDarkMode} from '@sindresorhus/xbar';
 
-bitbar([
+xbar([
 	{
 		text: '❤',
 		color: isDarkMode ? 'white' : 'red',
@@ -161,7 +161,7 @@ bitbar([
 ]);
 ```
 */
-export default function bitbar(
+export default function xbar(
 	items: ReadonlyArray<string | Options | typeof separator>,
 	options?: TopLevelOptions
 ): void;

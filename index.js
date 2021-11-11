@@ -2,7 +2,7 @@ import process from 'node:process';
 
 export const separator = Symbol('separator');
 
-export const isDarkMode = process.env.BitBarDarkMode === '1';
+export const isDarkMode = process.env.XBARDarkMode === '1';
 
 const encodeHref = url => {
 	url = encodeURI(url);
@@ -56,6 +56,6 @@ export const _create = (input, options = {}, menuLevel = 0) => {
 	}).join('\n');
 };
 
-export default function bitbar(input, options) {
+export default function xbar(input, options) {
 	console.log(_create(input, options));
 }
