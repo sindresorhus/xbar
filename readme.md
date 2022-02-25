@@ -17,7 +17,7 @@ npm install @sindresorhus/xbar
 ## Usage
 
 ```js
-#!/usr/bin/env node --input-type=module
+#!/usr/bin/env node
 import xbar, {separator, isDarkMode} from '@sindresorhus/xbar';
 
 xbar([
@@ -47,6 +47,8 @@ xbar([
 ```
 
 Create a file with the above code in the xbar plugins directory and make sure to `chmod +x filename.js` it. [Read more.](https://github.com/matryer/xbar#installing-plugins)
+
+**Note:** You need to either have a `package.json` file with `{"type": "module"}` or use the `.mjs` extension instead of `.js`.
 
 *Change `node` in `#!/usr/bin/env node` to the path of your Node.js binary. This is a [known issue](https://github.com/matryer/xbar/issues/36) in xbar.*
 
