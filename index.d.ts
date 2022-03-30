@@ -125,6 +125,11 @@ Check whether dark mode is enabled.
 export const isDarkMode: boolean;
 
 /**
+Check whether the script is running from xbar.
+*/
+export const isxbar: boolean;
+
+/**
 Create a plugin for xbar.
 
 @param items - xbar items.

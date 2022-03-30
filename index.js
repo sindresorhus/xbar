@@ -4,6 +4,8 @@ export const separator = Symbol('separator');
 
 export const isDarkMode = process.env.XBARDarkMode === '1';
 
+export const isxbar = process.env.__CFBundleIdentifier === 'com.xbarapp.app';
+
 const encodeHref = url => {
 	url = encodeURI(url);
 	url = url.replace(/'/g, '%27');
