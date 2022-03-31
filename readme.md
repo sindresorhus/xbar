@@ -83,3 +83,7 @@ Add a separator.
 ### isDarkMode
 
 A boolean of whether macOS dark mode is enabled.
+
+### isXbar
+
+A boolean to check if script is running from xbar or terminal.
