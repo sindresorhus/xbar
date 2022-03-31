@@ -82,4 +82,12 @@ Add a separator.
 
 ### isDarkMode
 
-A boolean of whether macOS dark mode is enabled.
+Type: `boolean`
+
+Check whether dark mode is enabled.
+
+### isXbar
+
+Type: `boolean`
+
+Check whether the script is running from xbar.
