@@ -127,7 +127,7 @@ export const isDarkMode: boolean;
 /**
 Check whether the script is running from xbar.
 */
-export const isxbar: boolean;
+export const isXbar: boolean;
 
 /**
 Create a plugin for xbar.
