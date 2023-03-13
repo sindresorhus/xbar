@@ -2,7 +2,7 @@ import process from 'node:process';
 
 export const separator = Symbol('separator');
 
-export const isDarkMode = process.env.XBARDarkMode === '1';
+export const isDarkMode = process.env.XBARDarkMode === 'true';
 
 export const isXbar = process.env.__CFBundleIdentifier === 'com.xbarapp.app';
 
