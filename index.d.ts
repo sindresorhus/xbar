@@ -138,7 +138,7 @@ Create a plugin for xbar.
 @example
 ```
 #!/usr/bin/env node --input-type=module
-import xbar, {separator, isDarkMode} from '@sindresorhus/xbar';
+import xbar, {separator, isDarkMode} from 'xbar';
 
 xbar([
 	{

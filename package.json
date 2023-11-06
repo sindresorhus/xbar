@@ -1,5 +1,5 @@
 {
-	"name": "@sindresorhus/xbar",
+	"name": "xbar",
 	"version": "2.1.1",
 	"description": "Simplifies xbar app plugin creation",
 	"license": "MIT",

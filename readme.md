@@ -11,14 +11,14 @@ Create your plugin using a nice API instead of having to manually construct a bi
 ## Install
 
 ```sh
-npm install @sindresorhus/xbar
+npm install xbar
 ```
 
 ## Usage
 
 ```js
 #!/usr/bin/env node
-import xbar, {separator, isDarkMode} from '@sindresorhus/xbar';
+import xbar, {separator, isDarkMode} from 'xbar';
 
 xbar([
 	{
