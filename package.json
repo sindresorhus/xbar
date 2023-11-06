@@ -1,6 +1,6 @@
 {
 	"name": "xbar",
-	"version": "2.1.1",
+	"version": "3.0.0",
 	"description": "Simplifies xbar app plugin creation",
 	"license": "MIT",
 	"repository": "sindresorhus/xbar",
