@@ -1,5 +1,5 @@
 import {expectAssignable, expectNotAssignable, expectType} from 'tsd';
-import xbar, {TopLevelOptions, separator, isDarkMode} from './index.js';
+import xbar, {type TopLevelOptions, separator, isDarkMode} from './index.js';
 
 expectType<void>(
 	xbar([

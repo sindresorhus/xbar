@@ -1,6 +1,6 @@
 # xbar
 
-> Simplifies [xbar](https://github.com/matryer/xbar) (previous known as BitBar) app plugin creation
+> Simplifies [xbar](https://github.com/matryer/xbar) app plugin creation
 
 Create your plugin using a nice API instead of having to manually construct a big string.
 

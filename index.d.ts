@@ -1,4 +1,4 @@
-interface XbarOptions {
+type XbarOptions = {
 	/**
 	The text to show. The only required property.
 	*/
@@ -103,16 +103,16 @@ interface XbarOptions {
 	Enable parsing of ANSI codes.
 	*/
 	readonly ansi?: boolean;
-}
+};
 
-export interface Options extends XbarOptions {
+export type Options = {
 	/**
 	Add a submenu to the item. A submenu is composed of an array of items.
 	*/
 	readonly submenu?: Array<string | Options | typeof separator>;
-}
+} & XbarOptions;
 
-export type TopLevelOptions = Omit<Options, 'text'>; // eslint-disable-line @typescript-eslint/ban-types
+export type TopLevelOptions = Omit<Options, 'text'>;
 
 /**
 Add a separator.

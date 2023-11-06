@@ -1,7 +1,7 @@
 {
 	"name": "@sindresorhus/xbar",
 	"version": "2.1.1",
-	"description": "Simplifies xbar (previously known as BitBar) app plugin creation",
+	"description": "Simplifies xbar app plugin creation",
 	"license": "MIT",
 	"repository": "sindresorhus/xbar",
 	"funding": "https://github.com/sponsors/sindresorhus",
@@ -11,9 +11,13 @@
 		"url": "https://sindresorhus.com"
 	},
 	"type": "module",
-	"exports": "./index.js",
+	"exports": {
+		"types": "./index.d.ts",
+		"default": "./index.js"
+	},
+	"sideEffects": false,
 	"engines": {
-		"node": "^12.20.0 || ^14.13.1 || >=16.0.0"
+		"node": ">=18"
 	},
 	"scripts": {
 		"test": "xo && ava && tsd"
@@ -32,8 +36,8 @@
 		"bar"
 	],
 	"devDependencies": {
-		"ava": "^3.15.0",
-		"tsd": "^0.18.0",
-		"xo": "^0.45.0"
+		"ava": "^5.3.1",
+		"tsd": "^0.29.0",
+		"xo": "^0.56.0"
 	}
 }

@@ -8,13 +8,13 @@ export const isXbar = process.env.__CFBundleIdentifier === 'com.xbarapp.app';
 
 const encodeHref = url => {
 	url = encodeURI(url);
-	url = url.replace(/'/g, '%27');
-	url = url.replace(/&/g, '%26');
+	url = url.replaceAll('\'', '%27');
+	url = url.replaceAll('&', '%26');
 	return url;
 };
 
 export const _create = (input, options = {}, menuLevel = 0) => {
-	if (typeof options.text !== 'undefined') {
+	if (options.text !== undefined) {
 		throw new TypeError('The `text` option is not supported as a top-level option. Use it on an item instead.');
 	}
 
